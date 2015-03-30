@@ -81,7 +81,6 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                         classname = reader.GetString(4);
                         logincount = reader.GetInt16(5);
                         zancount = reader.GetInt16(6);
-                        //ErrorsLabel.Text = String.Format("i：{6} 用户ID：{0} 姓名：{7} 密码：{1} 用户类型：{2} 专业：{3} 登录次数：{4} 点赞数量：{5}", userid, password, usertype, classname, logincount, zancount, i, username);
                     }
                 }
                 catch (MySqlException ex)
@@ -96,9 +95,18 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                     if (i == 0) ErrorsLabel.Text = "用户名或密码错误";
                     else
                     {
-                        MainForm mainform = new MainForm();
-                        mainform.Show();
-                        this.Hide();
+                        if (usertype != "admin")
+                        {
+                            MessageBox.Show("请用管理员帐号登录本客户端");
+                            Application.Exit();
+                        }
+                        else
+                        {
+                            MainForm mainform = new MainForm();
+                            //mainform.WindowState = FormWindowState.Maximized;//设置窗口最大化
+                            mainform.Show();
+                            this.Hide();                                                                                             
+                        }
                     }
                 }
             }
