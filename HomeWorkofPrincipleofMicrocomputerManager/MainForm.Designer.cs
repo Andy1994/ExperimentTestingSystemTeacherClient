@@ -299,6 +299,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.AutoScroll = true;
             this.splitContainer3.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.splitContainer3.Panel1.Controls.Add(this.button33);
             this.splitContainer3.Panel1.Controls.Add(this.button32);
