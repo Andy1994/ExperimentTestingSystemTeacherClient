@@ -126,6 +126,7 @@
             this.SubmitButton.BackColor = System.Drawing.Color.LimeGreen;
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitButton.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SubmitButton.ForeColor = System.Drawing.Color.White;
             this.SubmitButton.Location = new System.Drawing.Point(98, 154);
             this.SubmitButton.Name = "SubmitButton";

@@ -54,7 +54,7 @@
             // 
             // ComfirmSetIpButton
             // 
-            this.ComfirmSetIpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComfirmSetIpButton.BackColor = System.Drawing.Color.LimeGreen;
             this.ComfirmSetIpButton.FlatAppearance.BorderSize = 0;
             this.ComfirmSetIpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ComfirmSetIpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

@@ -15,11 +15,15 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         public addStudent addstudent;//定义学生添加控件
         public deleteStudent deletestudent;
         public addClass addclass;
+        public deleteClass deleteclass;
         public addTeacher addteacher;
         public deleteTeacher deleteteacher;
         public questionShow questionshow;
+        public questionAdd questionadd;
+        public studentAnswer studentanswer;
 
         Button ButtonTag;
+        public static int answerShowID;
         public static int questionShowID;
         public static int refresh;
 
@@ -116,7 +120,44 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             button21.Text = "题目浏览";
             button22.Text = "题目添加";
             button23.Text = "试卷添加";
-            unDisplayButton(2, 3);
+            unDisplayButton(2, 2);
+        }
+
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            TimeStatus.Text = button13.Text;
+            Button1ClickFlag = 3;
+            unDisplay23Button();
+
+            addStudentInPanel2(1);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            TimeStatus.Text = button14.Text;
+            Button1ClickFlag = 4;
+            unDisplay23Button();
+
+            addStudentInPanel2(2);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            TimeStatus.Text = button15.Text;
+            Button1ClickFlag = 5;
+            unDisplay23Button();
+
+            addStudentInPanel2(3);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            TimeStatus.Text = button16.Text;
+            Button1ClickFlag = 6;
+            unDisplay23Button();
+
+            addStudentInPanel2(4);
         }
 
         void unDisplayButton(int k,int i)
@@ -146,9 +187,10 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 foreach (Control con in splitContainer3.Panel1.Controls)
                 {
                     if (con.Name == "button31" || con.Name == "button32" || con.Name == "button33")
-                    { 
+                    {
                     }
-                    else splitContainer3.Panel1.Controls.Remove(con);
+                    else con.Visible = false; 
+                    //splitContainer3.Panel1.Controls.Remove(con);
                 }
                 if (i == 0)
                 {
@@ -201,11 +243,16 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             if (Button1ClickFlag == 1)
             {
                 button31.Text = "班级添加";
-                unDisplayButton(3, 1);
+                button32.Text = "班级删除";
+                unDisplayButton(3, 2);
                 if (splitContainer3.SplitterDistance == 175) splitContainer3.SplitterDistance -= 15;
             }
             else if (Button1ClickFlag == 2)
             {
+                unDisplayButton(3, 0);
+                questionadd = new questionAdd();
+                splitContainer3.Panel2.Controls.Clear();
+                splitContainer3.Panel2.Controls.Add(questionadd);
             }
         }
 
@@ -268,6 +315,12 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                     splitContainer3.Panel2.Controls.Clear();
                     splitContainer3.Panel2.Controls.Add(deletestudent);
                 }
+                else if (Button2ClickFlag == 2)
+                {
+                    deleteclass = new deleteClass();
+                    splitContainer3.Panel2.Controls.Clear();
+                    splitContainer3.Panel2.Controls.Add(deleteclass);
+                }
                 else if (Button2ClickFlag == 3)
                 {
                     deleteteacher = new deleteTeacher();
@@ -294,7 +347,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 {
                     questionID = reader.GetInt32(0);
                     buttonName = reader.GetString(1);
-                    addQuestionButton(LocationFlag, buttonName, questionID, 0);
+                    addQuestionButton(LocationFlag, buttonName, questionID, 0 ,0, null);
                     LocationFlag++;
                 }
                 //有题目显示出来，判断数量，决定要不要改变SplitterDistance
@@ -321,7 +374,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             }
         }
 
-        void addQuestionButton(int i, string title, int qID, int aID)
+        void addQuestionButton(int i, string title, int qID, int aID, int flag, string id)
         {
             System.Windows.Forms.Button buttonX = new Button();
             buttonX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -333,19 +386,33 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             buttonX.Size = new System.Drawing.Size(150, 50);
             buttonX.Location = new System.Drawing.Point(5, 55 * (i - 1) + 5);
 
-            if (aID == 0)
+            if (flag == 0)
             {
+                if (aID == 0)
+                {
+                    buttonX.Text = title;
+                    buttonX.Tag = qID;//为button添加Tag
+                    buttonX.Click += new EventHandler(this.questionshow_Click);//添加单击鼠标事件
+                }
+                else
+                {
+                    //添加学生回答按钮
+                    if (id == "green") buttonX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(240)))));
+                    buttonX.Text = title;
+                    buttonX.Tag = aID;
+                    buttonX.Click += new EventHandler(this.showAnswerDetail_Click);
+                }
+                splitContainer3.Panel1.Controls.Add(buttonX);
+            }
+            else if (flag == 1)
+            {
+                buttonX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+                
                 buttonX.Text = title;
-                buttonX.Tag = qID;//为button添加Tag
-                buttonX.Click += new EventHandler(this.questionshow_Click);//添加单击鼠标事件
+                buttonX.Tag = id;
+                buttonX.Click += new EventHandler(this.studentAnswerShow_Click);
+                splitContainer2.Panel1.Controls.Add(buttonX);
             }
-            else
-            {
-                buttonX.Text = qID.ToString() + " " + title;
-                buttonX.Tag = aID;
-                //buttonX.Click += new EventHandler(this.answerButton_Click);
-            }
-            splitContainer3.Panel1.Controls.Add(buttonX);
         }
 
         private void questionshow_Click(object sender, EventArgs e)
@@ -361,6 +428,134 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             questionshow = new questionShow();
             splitContainer3.Panel2.Controls.Clear();
             splitContainer3.Panel2.Controls.Add(questionshow);
+        }
+
+        void addStudentInPanel2(int i)
+        {
+            int LocationFlag = 1;
+            string className = null;
+            if (i == 1) className = button13.Text;
+            else if (i == 2) className = button14.Text;
+            else if (i == 3) className = button15.Text;
+            else if (i == 4) className = button16.Text;
+
+            MySqlCommand cmd;
+            MySqlDataReader reader = null;
+            string sql = "select * from userinfo where classname='"+ className +"' order by xuhao";
+            try
+            {
+                cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string id = reader.GetString(0);
+                    string username = reader.GetString(1);
+                    addQuestionButton(LocationFlag, username, 0, 0, 1, id);
+                    LocationFlag++;
+                }
+                //有题目显示出来，判断数量，决定要不要改变SplitterDistance
+                if (LocationFlag != 1)
+                {
+                    if (this.Width == 1100 && LocationFlag > 11 && splitContainer2.SplitterDistance < 165)
+                    {
+                        splitContainer2.SplitterDistance += 15;
+                    }
+                    else if (this.Width > 1100 && LocationFlag > 16 && splitContainer2.SplitterDistance < 165)
+                    {
+                        splitContainer2.SplitterDistance += 15;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (conn != null) conn.Close();
+            }
+        }
+
+        private void studentAnswerShow_Click(object sender, EventArgs e)
+        {
+            //恢复原来背景色
+            if (ButtonTag != null) ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+            //获取按钮Tag
+            ButtonTag = (Button)sender;
+            string userid = (string)(ButtonTag.Tag);
+            TimeStatus.Text = ButtonTag.Text + " " + userid;
+            //点击之后按钮背景色改变
+            ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+
+            unDisplayButton(3, 0);//清空
+
+            int LocationFlag = 1;
+            MySqlCommand cmd;
+            MySqlDataReader reader = null;
+            string sql = "select * from answertable where userid='"+userid+"' order by answerID desc";
+            try
+            {
+                cmd = new MySqlCommand(sql, conn);
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    int aID = reader.GetInt32(0);
+                    string title = reader.GetString(4);
+                    string time = reader.GetString(2);
+                    int correcting = reader.GetInt32(7);
+                    if (correcting == 0)
+                    {
+                        addQuestionButton(LocationFlag, title + " " + time, 0, aID, 0, null);
+                    }
+                    else addQuestionButton(LocationFlag, title + " " + time, 0, aID, 0, "green");
+                    LocationFlag++;
+                }
+                //有题目显示出来，判断数量，决定要不要改变SplitterDistance
+                if (LocationFlag != 1)
+                {
+                    if (this.Width == 1100 && LocationFlag > 11 && splitContainer3.SplitterDistance < 165)
+                    {
+                        splitContainer3.SplitterDistance += 15;
+                    }
+                    else if (this.Width > 1100 && LocationFlag > 16 && splitContainer3.SplitterDistance < 165)
+                    {
+                        splitContainer3.SplitterDistance += 15;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (conn != null) conn.Close();
+            }
+        }
+
+        private void showAnswerDetail_Click(object sender, EventArgs e)
+        {
+            //恢复原来背景色
+            if (ButtonTag != null) ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            //获取按钮Tag
+            ButtonTag = (Button)sender;
+            answerShowID = (int)(ButtonTag.Tag);
+            //点击之后按钮背景色改变
+            ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+
+            studentanswer = new studentAnswer();
+            splitContainer3.Panel2.Controls.Clear();
+            splitContainer3.Panel2.Controls.Add(studentanswer);
+        }
+
+        private void ChangePassword_Click(object sender, EventArgs e)
+        {
+            changePassword changepassword = new changePassword();
+            changepassword.Show();
         }
     }
 }

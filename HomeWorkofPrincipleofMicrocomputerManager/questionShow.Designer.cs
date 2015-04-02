@@ -46,7 +46,7 @@
             "80",
             "90",
             "100"});
-            this.scoreLevel.Location = new System.Drawing.Point(58, 44);
+            this.scoreLevel.Location = new System.Drawing.Point(63, 44);
             this.scoreLevel.Name = "scoreLevel";
             this.scoreLevel.Size = new System.Drawing.Size(50, 20);
             this.scoreLevel.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(10, 50);
+            this.label2.Location = new System.Drawing.Point(15, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 14);
             this.label2.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(144, 50);
+            this.label3.Location = new System.Drawing.Point(144, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 14);
             this.label3.TabIndex = 3;
@@ -107,7 +107,7 @@
             // 
             // delete
             // 
-            this.delete.BackColor = System.Drawing.Color.Brown;
+            this.delete.BackColor = System.Drawing.Color.Red;
             this.delete.FlatAppearance.BorderSize = 0;
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -123,7 +123,7 @@
             // title
             // 
             this.title.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.title.Location = new System.Drawing.Point(14, 9);
+            this.title.Location = new System.Drawing.Point(15, 10);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(266, 29);
             this.title.TabIndex = 8;

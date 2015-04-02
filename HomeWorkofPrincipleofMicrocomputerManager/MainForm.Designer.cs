@@ -47,14 +47,15 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.开始NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.继续CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TimeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.BodyPanel = new System.Windows.Forms.Panel();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.ChangePassword = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.MyInfoButton = new System.Windows.Forms.Button();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,7 +93,6 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -135,6 +135,7 @@
             this.button16.TabIndex = 6;
             this.button16.Text = "button16";
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button15
             // 
@@ -151,6 +152,7 @@
             this.button15.TabIndex = 5;
             this.button15.Text = "button15";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 
@@ -167,6 +169,7 @@
             this.button14.TabIndex = 4;
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -183,6 +186,7 @@
             this.button13.TabIndex = 3;
             this.button13.Text = "button13";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -211,7 +215,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.splitContainer2.Panel1.Controls.Add(this.button24);
             this.splitContainer2.Panel1.Controls.Add(this.button23);
             this.splitContainer2.Panel1.Controls.Add(this.button22);
@@ -221,7 +225,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(939, 571);
-            this.splitContainer2.SplitterDistance = 156;
+            this.splitContainer2.SplitterDistance = 160;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 2;
             // 
@@ -229,13 +233,14 @@
             // 
             this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.button24.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button24.FlatAppearance.BorderSize = 0;
             this.button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(248)))), ((int)(((byte)(254)))));
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button24.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button24.Location = new System.Drawing.Point(5, 170);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(146, 50);
+            this.button24.Size = new System.Drawing.Size(150, 50);
             this.button24.TabIndex = 5;
             this.button24.Text = "button24";
             this.button24.UseVisualStyleBackColor = false;
@@ -245,13 +250,14 @@
             // 
             this.button23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.button23.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button23.FlatAppearance.BorderSize = 0;
             this.button23.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.button23.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(248)))), ((int)(((byte)(254)))));
             this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button23.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button23.Location = new System.Drawing.Point(5, 115);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(146, 50);
+            this.button23.Size = new System.Drawing.Size(150, 50);
             this.button23.TabIndex = 4;
             this.button23.Text = "教师管理";
             this.button23.UseVisualStyleBackColor = false;
@@ -261,13 +267,14 @@
             // 
             this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.button22.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button22.FlatAppearance.BorderSize = 0;
             this.button22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(248)))), ((int)(((byte)(254)))));
             this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button22.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button22.Location = new System.Drawing.Point(5, 60);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(146, 50);
+            this.button22.Size = new System.Drawing.Size(150, 50);
             this.button22.TabIndex = 3;
             this.button22.Text = "班级管理";
             this.button22.UseVisualStyleBackColor = false;
@@ -277,13 +284,14 @@
             // 
             this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.button21.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button21.FlatAppearance.BorderSize = 0;
             this.button21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(248)))), ((int)(((byte)(254)))));
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button21.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button21.Location = new System.Drawing.Point(5, 5);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(146, 50);
+            this.button21.Size = new System.Drawing.Size(150, 50);
             this.button21.TabIndex = 2;
             this.button21.Text = "学生管理";
             this.button21.UseVisualStyleBackColor = false;
@@ -308,7 +316,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.splitContainer3.Size = new System.Drawing.Size(782, 571);
+            this.splitContainer3.Size = new System.Drawing.Size(778, 571);
             this.splitContainer3.SplitterDistance = 160;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 2;
@@ -371,8 +379,7 @@
             // 
             this.mainMenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.开始NToolStripMenuItem,
-            this.继续CToolStripMenuItem});
+            this.开始NToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(1090, 25);
@@ -381,15 +388,11 @@
             // 
             // 开始NToolStripMenuItem
             // 
+            this.开始NToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.退出ToolStripMenuItem});
             this.开始NToolStripMenuItem.Name = "开始NToolStripMenuItem";
             this.开始NToolStripMenuItem.Size = new System.Drawing.Size(62, 21);
             this.开始NToolStripMenuItem.Text = "开始(&N)";
-            // 
-            // 继续CToolStripMenuItem
-            // 
-            this.继续CToolStripMenuItem.Name = "继续CToolStripMenuItem";
-            this.继续CToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
-            this.继续CToolStripMenuItem.Text = "继续(&C)";
             // 
             // statusStrip1
             // 
@@ -431,6 +434,7 @@
             // 
             // InfoPanel
             // 
+            this.InfoPanel.Controls.Add(this.ChangePassword);
             this.InfoPanel.Controls.Add(this.ExitButton);
             this.InfoPanel.Controls.Add(this.MyInfoButton);
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -438,6 +442,25 @@
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(1090, 50);
             this.InfoPanel.TabIndex = 6;
+            // 
+            // ChangePassword
+            // 
+            this.ChangePassword.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.password3;
+            this.ChangePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.ChangePassword.FlatAppearance.BorderSize = 0;
+            this.ChangePassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.ChangePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangePassword.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ChangePassword.Location = new System.Drawing.Point(184, 8);
+            this.ChangePassword.Name = "ChangePassword";
+            this.ChangePassword.Size = new System.Drawing.Size(94, 35);
+            this.ChangePassword.TabIndex = 10;
+            this.ChangePassword.Text = "密码修改";
+            this.ChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ChangePassword.UseVisualStyleBackColor = true;
+            this.ChangePassword.Click += new System.EventHandler(this.ChangePassword_Click);
             // 
             // ExitButton
             // 
@@ -475,6 +498,13 @@
             this.MyInfoButton.Text = "ID info";
             this.MyInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MyInfoButton.UseVisualStyleBackColor = true;
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // MainForm
             // 
@@ -519,7 +549,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem 开始NToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 继续CToolStripMenuItem;
         private System.Windows.Forms.Button MyInfoButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel TimeStatus;
@@ -541,6 +570,8 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button ChangePassword;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
 
     }
 }

@@ -79,8 +79,8 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 //将内存流储存为byte
                 byte[] blob = new byte[ms.Length];
                 ms.Read(blob, 0, blob.Length);
-                
-                string sql = "update questiontable set title='"+title.Text+"',questype='"+quesType.Text+"',difficulty='"+scoreLevel.Text+"',content = ?data where questionID = "+MainForm.questionShowID+"";
+
+                string sql = "update questiontable set title='" + title.Text + "',questype='" + quesType.Text + "',difficulty='" + scoreLevel.Text + "',content = ?data where questionID = " + MainForm.questionShowID + "";
                 //string sql = "update questiontable set title='" + title.Text + "' where questionID = " + MainForm.questionShowID + "";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.Add("?data", MySql.Data.MySqlClient.MySqlDbType.LongBlob, blob.Length).Value = blob;

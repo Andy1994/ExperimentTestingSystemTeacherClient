@@ -43,6 +43,7 @@
             this.Submit.BackColor = System.Drawing.Color.LimeGreen;
             this.Submit.FlatAppearance.BorderSize = 0;
             this.Submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Submit.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Submit.ForeColor = System.Drawing.Color.White;
             this.Submit.Location = new System.Drawing.Point(84, 99);
             this.Submit.Name = "Submit";
