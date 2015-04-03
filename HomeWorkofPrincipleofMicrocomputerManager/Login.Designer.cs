@@ -125,7 +125,7 @@
             // 
             // LoginBgi
             // 
-            this.LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title21;
+            this.LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title2;
             this.LoginBgi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LoginBgi.Location = new System.Drawing.Point(0, 0);
             this.LoginBgi.Name = "LoginBgi";

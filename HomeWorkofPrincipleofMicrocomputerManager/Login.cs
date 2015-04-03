@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -15,7 +14,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         private MySqlConnection conn;
         //private MySqlDataAdapter da;
         MySqlCommand cmd;
-        public static string serverip = "localhost";//服务器IP地址
+        public static string serverip = "127.0.0.1";//服务器IP地址
         public static bool isChangeIP = false;//记录IP地址改变
         public static string userid;//用户名
         public static string username;//用户姓名
@@ -38,9 +37,9 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             int i = rd.Next(1, 10000)%3;
             switch(i)
             {
-                case 0: LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title21; break;
-                case 1: LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title31; break;
-                case 2: LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title41; break;
+                case 0: LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title2; break;
+                case 1: LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title3; break;
+                case 2: LoginBgi.BackgroundImage = global::HomeWorkofPrincipleofMicrocomputerManager.Properties.Resources.Title4; break;
             }
         }
 
@@ -58,8 +57,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             }
             else 
             {
-                string connStr = String.Format("server={0};user id=root; password=; database=wjylsystem; pooling=false",
-                serverip);
+                string connStr = "server=" + serverip + ";user id=root; password=; database=wjylsystem; pooling=false";
 
                 try
                 {
@@ -85,7 +83,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 }
                 catch (MySqlException ex)
                 {
-                    ErrorsLabel.Text = "服务器连接错误";
+                    MessageBox.Show("     服务器连接错误     ");
                     //MessageBox.Show("Error connecting to the server: " + ex.Message);
                 }
                 finally

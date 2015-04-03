@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HomeWorkofPrincipleofMicrocomputerManager</RootNamespace>
     <AssemblyName>HomeWorkofPrincipleofMicrocomputerManager</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -33,16 +34,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>my.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=5.0.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 5.0.9\Binaries\.NET 2.0\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -174,6 +174,7 @@
     <EmbeddedResource Include="studentAnswer.resx">
       <DependentUpon>studentAnswer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -190,61 +191,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\head_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Title2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Title3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Title4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Title21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Title31.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Title41.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\notebook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\setting.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bold2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\insertImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Italic.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="my.ico" />
     <None Include="Resources\Underline.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\insertImage1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bold21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Italic1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\password.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\Title4.png" />
+    <None Include="Resources\Title3.png" />
+    <None Include="Resources\Title2.png" />
+    <None Include="Resources\setting.png" />
     <None Include="Resources\password3.png" />
+    <None Include="Resources\notebook2.png" />
+    <None Include="Resources\Italic.png" />
+    <None Include="Resources\insertImage.png" />
+    <None Include="Resources\heart.png" />
+    <None Include="Resources\head_logo.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\bold2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
