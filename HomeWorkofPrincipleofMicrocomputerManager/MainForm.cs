@@ -20,6 +20,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         public questionShow questionshow;
         public questionAdd questionadd;
         public studentAnswer studentanswer;
+        public addPaper addpaper;
 
         Button ButtonTag;
         public static int answerShowID;
@@ -29,6 +30,8 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         private MySqlConnection conn;
         int Button1ClickFlag = 0;
         int Button2ClickFlag = 0;
+
+        bool isFirstAddQuestion = true;
 
         public MainForm()
         {
@@ -119,7 +122,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             button21.Text = "题目浏览";
             button22.Text = "题目添加";
             button23.Text = "试卷添加";
-            unDisplayButton(2, 2);
+            unDisplayButton(2, 3);
         }
 
 
@@ -221,6 +224,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         private void button21_Click(object sender, EventArgs e)
         {
             Button2ClickFlag = 1;
+            //学生添加删除
             if (Button1ClickFlag == 1)
             {
                 button31.Text = "学生添加";
@@ -228,6 +232,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 unDisplayButton(3, 2);
                 if (splitContainer3.SplitterDistance == 175) splitContainer3.SplitterDistance -= 15;
             }
+            //问题浏览
             else if (Button1ClickFlag == 2)
             {
                 unDisplayButton(3, 0);
@@ -239,6 +244,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         private void button22_Click(object sender, EventArgs e)
         {
             Button2ClickFlag = 2;
+            //班级添加删除
             if (Button1ClickFlag == 1)
             {
                 button31.Text = "班级添加";
@@ -246,18 +252,21 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 unDisplayButton(3, 2);
                 if (splitContainer3.SplitterDistance == 175) splitContainer3.SplitterDistance -= 15;
             }
+            //添加问题
             else if (Button1ClickFlag == 2)
             {
                 unDisplayButton(3, 0);
                 questionadd = new questionAdd();
-                splitContainer3.Panel2.Controls.Clear();
-                splitContainer3.Panel2.Controls.Add(questionadd);
+                panel2.Visible = true;
+                panel2.Controls.Clear();
+                panel2.Controls.Add(questionadd);
             }
         }
 
         private void button23_Click(object sender, EventArgs e)
         {
             Button2ClickFlag = 3;
+            //教师添加删除
             if (Button1ClickFlag == 1)
             {
                 button31.Text = "教师添加";
@@ -265,9 +274,14 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 unDisplayButton(3, 2);
                 if (splitContainer3.SplitterDistance == 175) splitContainer3.SplitterDistance -= 15;
             }
+            //试卷添加
             else if (Button1ClickFlag == 2)
             {
+                unDisplayButton(3, 0);
+                addQuestionInPanel3();
+                isFirstAddQuestion = true;
 
+                panel2.Visible = false;
             }
         }
 
@@ -286,20 +300,23 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 if (Button2ClickFlag == 1)
                 {
                     addstudent = new addStudent();
-                    splitContainer3.Panel2.Controls.Clear();
-                    splitContainer3.Panel2.Controls.Add(addstudent);
+                    panel2.Visible = true;
+                    panel2.Controls.Clear();
+                    panel2.Controls.Add(addstudent);
                 }
                 else if (Button2ClickFlag == 2)
                 {
                     addclass = new addClass();
-                    splitContainer3.Panel2.Controls.Clear();
-                    splitContainer3.Panel2.Controls.Add(addclass);
+                    panel2.Visible = true;
+                    panel2.Controls.Clear();
+                    panel2.Controls.Add(addclass);
                 }
                 else if (Button2ClickFlag == 3)
                 {
                     addteacher = new addTeacher();
-                    splitContainer3.Panel2.Controls.Clear();
-                    splitContainer3.Panel2.Controls.Add(addteacher);
+                    panel2.Visible = true;
+                    panel2.Controls.Clear();
+                    panel2.Controls.Add(addteacher);
                 }
             }
         }
@@ -311,20 +328,23 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 if (Button2ClickFlag == 1)
                 {
                     deletestudent = new deleteStudent();
-                    splitContainer3.Panel2.Controls.Clear();
-                    splitContainer3.Panel2.Controls.Add(deletestudent);
+                    panel2.Visible = true;
+                    panel2.Controls.Clear();
+                    panel2.Controls.Add(deletestudent);
                 }
                 else if (Button2ClickFlag == 2)
                 {
                     deleteclass = new deleteClass();
-                    splitContainer3.Panel2.Controls.Clear();
-                    splitContainer3.Panel2.Controls.Add(deleteclass);
+                    panel2.Visible = true;
+                    panel2.Controls.Clear();
+                    panel2.Controls.Add(deleteclass);
                 }
                 else if (Button2ClickFlag == 3)
                 {
                     deleteteacher = new deleteTeacher();
-                    splitContainer3.Panel2.Controls.Clear();
-                    splitContainer3.Panel2.Controls.Add(deleteteacher);
+                    panel2.Visible = true;
+                    panel2.Controls.Clear();
+                    panel2.Controls.Add(deleteteacher);
                 }
             }
         }
@@ -391,7 +411,8 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 {
                     buttonX.Text = title;
                     buttonX.Tag = qID;//为button添加Tag
-                    buttonX.Click += new EventHandler(this.questionshow_Click);//添加单击鼠标事件
+                    if (Button2ClickFlag == 3) buttonX.Click += new EventHandler(this.addQuestionToPaper_Click);//添加试卷
+                    else buttonX.Click += new EventHandler(this.questionshow_Click);//问题详情
                 }
                 else
                 {
@@ -414,6 +435,22 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             }
         }
 
+        private void addQuestionToPaper_Click(object sender, EventArgs e)
+        {
+            //获取按钮Tag
+            ButtonTag = (Button)sender;
+
+            if (isFirstAddQuestion)
+            {
+                richTextBox1.Text += ButtonTag.Tag.ToString() + "," + ButtonTag.Text;
+                isFirstAddQuestion = false;
+            }
+            else richTextBox1.Text += ","+ ButtonTag.Tag.ToString() + "," + ButtonTag.Text;
+
+            //点击之后按钮背景色改变
+            ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+        }
+
         private void questionshow_Click(object sender, EventArgs e)
         {
             //恢复原来背景色
@@ -425,8 +462,9 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
 
             questionshow = new questionShow();
-            splitContainer3.Panel2.Controls.Clear();
-            splitContainer3.Panel2.Controls.Add(questionshow);
+            panel2.Visible = true;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(questionshow);
         }
 
         void addStudentInPanel2(int i)
@@ -547,14 +585,51 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             ButtonTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
 
             studentanswer = new studentAnswer();
-            splitContainer3.Panel2.Controls.Clear();
-            splitContainer3.Panel2.Controls.Add(studentanswer);
+            panel2.Visible = true;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(studentanswer);
         }
 
         private void ChangePassword_Click(object sender, EventArgs e)
         {
             changePassword changepassword = new changePassword();
             changepassword.Show();
+        }
+
+        private void submitpaper_Click(object sender, EventArgs e)
+        {
+            if (paperTitle.Text == "")
+            {
+                MessageBox.Show("     试卷标题不能为空!     ");
+                return;
+            }
+            if (richTextBox1.Text == "")
+            {
+                MessageBox.Show("     试卷不能为空,点击左侧题目按钮添加!     ");
+                return;
+            }
+            string time = DateTime.Now.ToString("yyyy-MM-dd");
+
+            MySqlCommand cmd;
+            try
+            {
+                string sql = "insert into papertable(teacherName,paperName,questionArray,time) values('"+LoginForm.username+"','"+paperTitle.Text+"','"+richTextBox1.Text+"','"+time+"')";
+                cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("     试卷添加成功!     ");
+
+                //控件恢复
+                paperTitle.Text = "";
+                richTextBox1.Text = "";
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

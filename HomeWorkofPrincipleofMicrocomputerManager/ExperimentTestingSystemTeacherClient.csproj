@@ -56,6 +56,12 @@
     <Compile Include="addClass.Designer.cs">
       <DependentUpon>addClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="addPaper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="addPaper.Designer.cs">
+      <DependentUpon>addPaper.cs</DependentUpon>
+    </Compile>
     <Compile Include="addStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </Compile>
     <EmbeddedResource Include="addClass.resx">
       <DependentUpon>addClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addPaper.resx">
+      <DependentUpon>addPaper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="addStudent.resx">
       <DependentUpon>addStudent.cs</DependentUpon>
