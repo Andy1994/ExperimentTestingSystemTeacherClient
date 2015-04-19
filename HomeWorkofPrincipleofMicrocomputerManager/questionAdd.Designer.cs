@@ -76,6 +76,7 @@
             this.scoreLevel.FormattingEnabled = true;
             this.scoreLevel.Items.AddRange(new object[] {
             "默认",
+            "70",
             "80",
             "90",
             "100"});
@@ -112,6 +113,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(600, 380);
             this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
             // 
             // save
             // 

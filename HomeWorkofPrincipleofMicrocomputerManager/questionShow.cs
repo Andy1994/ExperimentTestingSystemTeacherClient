@@ -48,9 +48,10 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 if (type == "问答题") quesType.SelectedIndex = 0;
                 else quesType.SelectedIndex = 1;
 
-                if (diff == "80") scoreLevel.SelectedIndex = 1;
-                else if (diff == "95") scoreLevel.SelectedIndex = 2;
-                else if(diff == "100") scoreLevel.SelectedIndex = 3;
+                if (diff == "70") scoreLevel.SelectedIndex = 1;
+                else if (diff == "80") scoreLevel.SelectedIndex = 2;
+                else if (diff == "90") scoreLevel.SelectedIndex = 3;
+                else if(diff == "100") scoreLevel.SelectedIndex = 4;
                 else scoreLevel.SelectedIndex = 0;
             }
             catch (MySqlException ex)

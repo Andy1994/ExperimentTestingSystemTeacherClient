@@ -43,6 +43,7 @@
             this.scoreLevel.FormattingEnabled = true;
             this.scoreLevel.Items.AddRange(new object[] {
             "默认",
+            "70",
             "80",
             "90",
             "100"});

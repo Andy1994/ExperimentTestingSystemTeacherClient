@@ -21,6 +21,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         public questionAdd questionadd;
         public studentAnswer studentanswer;
         public addPaper addpaper;
+        public TestSetting testsetting;
 
         Button ButtonTag;
         public static int answerShowID;
@@ -106,6 +107,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             TimeStatus.Text = button11.Text;
             Button1ClickFlag = 1;
             unDisplay23Button();
+            unDisplayStudentButton();
 
             button21.Text = "学生管理";
             button22.Text = "班级管理";
@@ -118,11 +120,13 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             TimeStatus.Text = button12.Text;
             Button1ClickFlag = 2;
             unDisplay23Button();
+            unDisplayStudentButton();
 
             button21.Text = "题目浏览";
             button22.Text = "题目添加";
             button23.Text = "试卷添加";
-            unDisplayButton(2, 3);
+            button24.Text = "试卷设置";
+            unDisplayButton(2, 4);
         }
 
 
@@ -131,6 +135,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             TimeStatus.Text = button13.Text;
             Button1ClickFlag = 3;
             unDisplay23Button();
+            unDisplayStudentButton();
 
             addStudentInPanel2(1);
         }
@@ -140,6 +145,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             TimeStatus.Text = button14.Text;
             Button1ClickFlag = 4;
             unDisplay23Button();
+            unDisplayStudentButton();
 
             addStudentInPanel2(2);
         }
@@ -149,6 +155,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             TimeStatus.Text = button15.Text;
             Button1ClickFlag = 5;
             unDisplay23Button();
+            unDisplayStudentButton();
 
             addStudentInPanel2(3);
         }
@@ -158,12 +165,49 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
             TimeStatus.Text = button16.Text;
             Button1ClickFlag = 6;
             unDisplay23Button();
+            unDisplayStudentButton();
 
             addStudentInPanel2(4);
         }
 
+        void unDisplayStudentButton()
+        {
+            for (int i = 1; i <= 7; i++)
+            {
+                foreach (Control con in splitContainer2.Panel1.Controls)
+                {
+                    if (con.Name != "button21")
+                    {
+                        if (con.Name != "button22")
+                        {
+                            if (con.Name != "button23")
+                            {
+                                if (con.Name != "button24")
+                                {
+                                    splitContainer2.Panel1.Controls.Remove(con);
+                                }
+                                continue;
+                            }
+                            continue;
+                        }
+                        continue;
+                    }
+                }
+            }
+        }
+
         void unDisplayButton(int k,int i)
         {
+            int jc = 0;
+            foreach (Control con in splitContainer2.Panel1.Controls)
+            {
+                jc++;
+            }
+            if (jc<11 && splitContainer2.SplitterDistance > 165)
+            {
+                splitContainer2.SplitterDistance -= 15;
+            }
+
             if (k == 1)
             {
                 int j = 1;
@@ -289,7 +333,11 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         {
             if (Button1ClickFlag == 2)
             {
- 
+                unDisplayButton(3, 0);
+                testsetting = new TestSetting();
+                panel2.Visible = true;
+                panel2.Controls.Clear();
+                panel2.Controls.Add(testsetting);
             }
         }
 
@@ -488,7 +536,8 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                 {
                     string id = reader.GetString(0);
                     string username = reader.GetString(1);
-                    addQuestionButton(LocationFlag, username, 0, 0, 1, id);
+                    int xuhao = reader.GetInt32(7);
+                    addQuestionButton(LocationFlag, username+" "+xuhao.ToString(), 0, 0, 1, id);
                     LocationFlag++;
                 }
                 //有题目显示出来，判断数量，决定要不要改变SplitterDistance

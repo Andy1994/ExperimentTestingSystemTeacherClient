@@ -136,6 +136,12 @@
     <Compile Include="studentAnswer.Designer.cs">
       <DependentUpon>studentAnswer.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestSetting.Designer.cs">
+      <DependentUpon>TestSetting.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addClass.resx">
       <DependentUpon>addClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="studentAnswer.resx">
       <DependentUpon>studentAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSetting.resx">
+      <DependentUpon>TestSetting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

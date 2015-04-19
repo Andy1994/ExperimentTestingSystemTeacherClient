@@ -77,8 +77,8 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
                         password = reader.GetString(2);
                         usertype = reader.GetString(3);
                         classname = reader.GetString(4);
-                        logincount = reader.GetInt16(5);
-                        zancount = reader.GetInt16(6);
+                        logincount = reader.GetInt32(5);
+                        zancount = reader.GetInt32(6);
                     }
                 }
                 catch (MySqlException ex)
