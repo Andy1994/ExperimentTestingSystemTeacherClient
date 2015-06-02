@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(changePassword));
             this.oldPassword = new System.Windows.Forms.TextBox();
             this.newPassword = new System.Windows.Forms.TextBox();
             this.newPasswordConfirm = new System.Windows.Forms.TextBox();
@@ -91,6 +92,7 @@
             this.Controls.Add(this.newPassword);
             this.Controls.Add(this.oldPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "changePassword";
             this.Text = "密码修改";
             this.ResumeLayout(false);

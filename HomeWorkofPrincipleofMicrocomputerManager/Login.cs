@@ -15,6 +15,7 @@ namespace HomeWorkofPrincipleofMicrocomputerManager
         //private MySqlDataAdapter da;
         MySqlCommand cmd;
         public static string serverip = "127.0.0.1";//服务器IP地址
+        //public static string serverip = "192.168.1.143";//服务器IP地址
         public static bool isChangeIP = false;//记录IP地址改变
         public static string userid;//用户名
         public static string username;//用户姓名
